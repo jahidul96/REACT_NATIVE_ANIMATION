@@ -1,11 +1,11 @@
 import { StatusBar, StyleSheet, Text, View } from "react-native";
-import ScrollVeriticalAnimation from "./src/components/ScrollVeriticalAnimation";
+import DragAndDrop from "./src/components/DragAndDrop";
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle={"light-content"} backgroundColor="red" />
-      <ScrollVeriticalAnimation />
+      <DragAndDrop />
     </View>
   );
 }
