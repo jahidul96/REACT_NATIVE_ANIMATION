@@ -1,10 +1,15 @@
-import { Animated, PanResponder, StyleSheet, Text, View } from "react-native";
+import {
+  Animated,
+  Image,
+  PanResponder,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useRef } from "react";
 
 const DragItem = ({ data }) => {
   const pan = useRef(new Animated.ValueXY()).current;
-
-  console.log(pan.x);
 
   const panResponder = useRef(
     PanResponder.create({
@@ -29,9 +34,15 @@ const DragItem = ({ data }) => {
         transform: [{ translateX: pan.x }, { translateY: pan.y }],
       }}
       {...panResponder.panHandlers}
+      onTouchEnd={(event) => {
+        console.log(event.nativeEvent.pageX);
+      }}
     >
       <View style={styles.box}>
-        <Text style={styles.text}>{data.letter}</Text>
+        <Image
+          source={{ uri: data.photoUrl }}
+          style={{ width: "100%", height: "100%" }}
+        />
       </View>
     </Animated.View>
   );
