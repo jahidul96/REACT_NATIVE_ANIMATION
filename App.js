@@ -1,27 +1,42 @@
-import { StatusBar, StyleSheet, Text, View } from "react-native";
-import { DragAndDelete } from "./src/components/DragAndDelete";
-import DragAndDrop from "./src/components/DragAndDrop";
-import DropWithReanimated from "./src/screens/DropWithReanimated";
-import Example from "./src/screens/Example";
-import FamilyTree from "./src/screens/FamilyTree";
-import Zoom from "./src/screens/Zoom";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import OnboardingScreen from "./src/screens/OnboardingScreen";
+import HomeScreen from "./src/screens/HomeScreen";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const App = () => {
+  const [isAppFirstLaunched, setIsAppFirstLaunched] = React.useState(null);
+
+  React.useEffect(async () => {
+    const appData = await AsyncStorage.getItem("isAppFirstLaunched");
+    if (appData == null) {
+      setIsAppFirstLaunched(true);
+      AsyncStorage.setItem("isAppFirstLaunched", "false");
+    } else {
+      setIsAppFirstLaunched(false);
+    }
+
+    // AsyncStorage.removeItem('isAppFirstLaunched');
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={"light-content"} backgroundColor="red" />
-      {/* <DragAndDrop /> */}
-
-      {/* <DragAndDelete /> */}
-
-      <Zoom />
-    </View>
+    isAppFirstLaunched != null && (
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          {isAppFirstLaunched && (
+            <Stack.Screen
+              name="OnboardingScreen"
+              component={OnboardingScreen}
+            />
+          )}
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-});
+export default App;
