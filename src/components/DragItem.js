@@ -35,7 +35,7 @@ const DragItem = ({ data }) => {
       }}
       {...panResponder.panHandlers}
       onTouchEnd={(event) => {
-        console.log(event.nativeEvent.pageX);
+        // console.log(event.nativeEvent.pageX);
       }}
     >
       <View style={styles.box}>
