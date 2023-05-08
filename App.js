@@ -9,11 +9,13 @@ import OnboardingScreen from "./src/screens/OnboardingScreen";
 import UserCardVerticalOpacityAnimation from "./src/screens/UserCardVerticalOpacityAnimation";
 import FlatlistStackCarouselBannerAndTextAnimation from "./src/screens/FlatlistStackCarouselBannerAndTextAnimation";
 import StackBannerCarousel from "./src/screens/StackBannerCarousel";
+import Scaleling from "./src/screens/Scaleling";
+import FlipUpAndDownCardAnimation from "./src/screens/FlipUpAndDownCardAnimation";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  return <StackBannerCarousel />;
+  return <FlipUpAndDownCardAnimation />;
 };
 
 export default App;
