@@ -41,7 +41,7 @@ const Paging = () => {
       <FlatList
         data={contents}
         pagingEnabled={true}
-        snapToInterval={height * 0.8}
+        snapToInterval={height}
         decelerationRate={"fast"}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   pageStyle: {
     width: width,
-    height: height * 0.8,
+    height: height,
     justifyContent: "center",
     alignItems: "center",
   },

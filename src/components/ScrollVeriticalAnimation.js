@@ -102,6 +102,7 @@ const Item = ({ item, index, onPress, extraStyle }) => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 30,
   },
   topFlatListStyle: {
     marginLeft: 8,
