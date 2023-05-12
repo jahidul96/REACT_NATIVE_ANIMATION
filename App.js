@@ -11,11 +11,12 @@ import FlatlistStackCarouselBannerAndTextAnimation from "./src/screens/FlatlistS
 import StackBannerCarousel from "./src/screens/StackBannerCarousel";
 import Scaleling from "./src/screens/Scaleling";
 import FlipUpAndDownCardAnimation from "./src/screens/FlipUpAndDownCardAnimation";
+import DragAndSort from "./src/screens/DragAndSort";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  return <FlipUpAndDownCardAnimation />;
+  return <DragAndSort />;
 };
 
 export default App;
