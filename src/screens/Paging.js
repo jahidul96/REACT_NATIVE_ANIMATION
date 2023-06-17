@@ -8,8 +8,6 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-const ITEM_HEIGHT = height * 0.8;
-
 const contents = [
   {
     id: 1,
