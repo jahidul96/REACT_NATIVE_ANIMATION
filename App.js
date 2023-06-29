@@ -1,15 +1,12 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-import CircularProgress from "./src/screens/CircularProgress";
+import FadeAniWithUseSharedVal from "./src/screens/reanimatedAndGestureAnim/FadeAniWithUseSharedVal";
 
 const Stack = createNativeStackNavigator();
 
-let progress = 0.6;
-
 const App = () => {
-  return <CircularProgress progress={progress} />;
+  return <FadeAniWithUseSharedVal />;
 };
 
 export default App;

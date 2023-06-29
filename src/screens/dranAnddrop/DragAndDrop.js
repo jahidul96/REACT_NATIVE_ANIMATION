@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
-import { Letters } from "../data/Letters";
+import { Letters } from "../../data/Letters";
 import DragItem from "./DragItem";
 
 const DragAndDrop = () => {

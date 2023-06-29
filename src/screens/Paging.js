@@ -37,6 +37,7 @@ const Paging = () => {
   return (
     <View style={styles.container}>
       <FlatList
+        scrollEventThrottle={16}
         data={contents}
         pagingEnabled={true}
         snapToInterval={height}
