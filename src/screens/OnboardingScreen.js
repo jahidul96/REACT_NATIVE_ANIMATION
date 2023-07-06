@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import {
   SafeAreaView,
   Image,
@@ -18,20 +18,23 @@ const COLORS = { primary: "#282534", white: "#fff" };
 const slides = [
   {
     id: "1",
-    image: require("../images/image1.png"),
-    title: "Best Digital Solution",
+    image:
+      "https://damassets.autodesk.net/content/dam/autodesk/www/industry/3d-animation/create-beautiful-3d-animations-thumb-1204x677.jpg",
+    title: "Dream Big",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: "2",
-    image: require("../images/image2.png"),
-    title: "Achieve Your Goals",
+    image:
+      "https://i.pinimg.com/originals/07/70/34/0770344658a5e5fe17140aeb2684a881.jpg",
+    title: "Always Try Harder",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: "3",
-    image: require("../images/image3.png"),
-    title: "Increase Your Value",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXuNOqTR_wolt2EYQdnzDBUkUwJzuM7-VPWT9u2DtGcS2a9Y6AsA1FFklcVVG6BT9koh8&usqp=CAU",
+    title: "Be Simple",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
@@ -40,20 +43,20 @@ const Slide = ({ item }) => {
   return (
     <View style={{ alignItems: "center" }}>
       <Image
-        source={item?.image}
-        style={{ height: "75%", width, resizeMode: "contain" }}
+        source={{ uri: item.image }}
+        style={{ height: "75%", width, resizeMode: "cover" }}
       />
       <View>
-        <Text style={styles.title}>{item?.title}</Text>
-        <Text style={styles.subtitle}>{item?.subtitle}</Text>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.subtitle}>{item.subtitle}</Text>
       </View>
     </View>
   );
 };
 
 const OnboardingScreen = ({ navigation }) => {
-  const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
-  const ref = React.useRef();
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const ref = useRef();
 
   const updateCurrentSlideIndex = (e) => {
     const contentOffsetX = e.nativeEvent.contentOffset.x;
@@ -208,7 +211,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   indicator: {
-    height: 2.5,
+    height: 10,
     width: 10,
     backgroundColor: "grey",
     marginHorizontal: 3,
