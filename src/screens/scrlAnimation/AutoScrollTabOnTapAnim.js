@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const HorizontalScrollViewAnimation = () => {
+const AutoScrollTabOnTapAnim = () => {
   return (
     <View>
-      <Text>HorizontalScrollViewAnimation</Text>
+      <Text>AutoScrollTabOnTapAnim</Text>
     </View>
   );
 };
 
-export default HorizontalScrollViewAnimation;
+export default AutoScrollTabOnTapAnim;
 
 const styles = StyleSheet.create({});
