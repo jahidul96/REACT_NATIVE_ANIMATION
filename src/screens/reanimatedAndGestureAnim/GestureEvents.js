@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import {
   GestureHandlerRootView,
   PanGestureHandler,
@@ -16,12 +16,14 @@ import Animated, {
 
 const bg =
   "https://i.pinimg.com/originals/07/70/34/0770344658a5e5fe17140aeb2684a881.jpg";
+const back =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXuNOqTR_wolt2EYQdnzDBUkUwJzuM7-VPWT9u2DtGcS2a9Y6AsA1FFklcVVG6BT9koh8&usqp=CAU";
 
 const IMGWIDTH = "100%";
 const IMGHEIGHT = "100%";
 
 const GestureEvents = () => {
-  return <MovingPanGesture />;
+  return <ImageMoveGesture />;
 };
 
 // OntapGesture
@@ -105,10 +107,12 @@ const ImageMoveGesture = () => {
   const onGestureEvent = useAnimatedGestureHandler({
     onStart: (event, ctx) => {
       gestureState.value = true;
+      ctx.startX = x.value;
+      ctx.startY = y.value;
     },
     onActive: (event, ctx) => {
-      x.value = startingPosition + event.translationX;
-      y.value = startingPosition + event.translationX;
+      x.value = ctx.startX + event.translationX;
+      y.value = ctx.startY + event.translationY;
     },
     onEnd: (event, ctx) => {
       gestureState.value = false;
@@ -119,22 +123,24 @@ const ImageMoveGesture = () => {
 
   const imgAnimStyle = useAnimatedStyle(() => {
     return {
-      width: gestureState.value ? 200 : IMGWIDTH,
-      height: gestureState.value ? 200 : IMGWIDTH,
-      borderRadius: gestureState.value ? 100 : 0,
-
-      transform: [{ translateX: x.value }, { translateY: y.value }],
+      transform: [
+        { translateX: x.value },
+        { translateY: y.value },
+        { scale: gestureState.value ? 0.6 : 1 },
+      ],
+      opacity: gestureState.value ? 0.7 : 1,
+      borderRadius: gestureState.value ? 10 : 0,
     };
   });
   return (
-    <View style={styles.imgWrapper}>
+    <ImageBackground style={styles.backImgStyle} source={{ uri: back }}>
       <PanGestureHandler onGestureEvent={onGestureEvent}>
         <Animated.Image
           source={{ uri: bg }}
           style={[styles.imageStyle, imgAnimStyle]}
         />
       </PanGestureHandler>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -153,6 +159,10 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     width: IMGWIDTH,
-    height: IMGWIDTH,
+    height: IMGHEIGHT,
+  },
+
+  backImgStyle: {
+    flex: 1,
   },
 });

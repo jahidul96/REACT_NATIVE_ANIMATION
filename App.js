@@ -8,6 +8,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import ScrollVeriticalAnimation from "./src/screens/scrlAnimation/ScrollVeriticalAnimation";
 import AutoScrollTabOnTapAnim from "./src/screens/scrlAnimation/AutoScrollTabOnTapAnim";
+import BkashTopBar from "./src/screens/BkashTopBar";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,13 +22,13 @@ const Wrapper = () => {
       <View style={styles.topBar}>
         <Text style={styles.textStyle}>Playing With Animation</Text>
       </View>
-      <AutoScrollTabOnTapAnim />
+      <GestureEvents />
     </GestureHandlerRootView>
   );
 };
 
 const App = () => {
-  return <Wrapper />;
+  return <BkashTopBar />;
 };
 
 export default App;
