@@ -1,16 +1,9 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import FadeAniWithUseSharedVal from "./src/screens/reanimatedAndGestureAnim/FadeAniWithUseSharedVal";
-import OnboardingScreen from "./src/screens/OnboardingScreen";
 import GestureEvents from "./src/screens/reanimatedAndGestureAnim/GestureEvents";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
-import ScrollVeriticalAnimation from "./src/screens/scrlAnimation/ScrollVeriticalAnimation";
-import AutoScrollTabOnTapAnim from "./src/screens/scrlAnimation/AutoScrollTabOnTapAnim";
-import BkashTopBar from "./src/screens/BkashTopBar";
-import ZoomPinchImage from "./src/screens/ZoomPinchImage";
-import OnSwipeToDelete from "./src/screens/OnSwipeToDelete";
+import ScrollPagingAnim from "./src/screens/scrlAnimation/ScrollPagingAnim";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +23,7 @@ const Wrapper = () => {
 };
 
 const App = () => {
-  return <OnSwipeToDelete />;
+  return <ScrollPagingAnim />;
 };
 
 export default App;
