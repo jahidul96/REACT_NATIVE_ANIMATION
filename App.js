@@ -10,6 +10,7 @@ import ScrollVeriticalAnimation from "./src/screens/scrlAnimation/ScrollVeritica
 import AutoScrollTabOnTapAnim from "./src/screens/scrlAnimation/AutoScrollTabOnTapAnim";
 import BkashTopBar from "./src/screens/BkashTopBar";
 import ZoomPinchImage from "./src/screens/ZoomPinchImage";
+import OnSwipeToDelete from "./src/screens/OnSwipeToDelete";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,7 @@ const Wrapper = () => {
 };
 
 const App = () => {
-  return <ZoomPinchImage />;
+  return <OnSwipeToDelete />;
 };
 
 export default App;
