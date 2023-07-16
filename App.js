@@ -9,6 +9,7 @@ import { StyleSheet, Text, View } from "react-native";
 import ScrollVeriticalAnimation from "./src/screens/scrlAnimation/ScrollVeriticalAnimation";
 import AutoScrollTabOnTapAnim from "./src/screens/scrlAnimation/AutoScrollTabOnTapAnim";
 import BkashTopBar from "./src/screens/BkashTopBar";
+import ZoomPinchImage from "./src/screens/ZoomPinchImage";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +29,7 @@ const Wrapper = () => {
 };
 
 const App = () => {
-  return <BkashTopBar />;
+  return <ZoomPinchImage />;
 };
 
 export default App;
