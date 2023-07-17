@@ -4,6 +4,9 @@ import GestureEvents from "./src/screens/reanimatedAndGestureAnim/GestureEvents"
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import ScrollPagingAnim from "./src/screens/scrlAnimation/ScrollPagingAnim";
+import FloatingButtonsAnim, {
+  CircularFloatingButtons,
+} from "./src/screens/FloatingButtonsAnim";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +26,7 @@ const Wrapper = () => {
 };
 
 const App = () => {
-  return <ScrollPagingAnim />;
+  return <CircularFloatingButtons />;
 };
 
 export default App;
