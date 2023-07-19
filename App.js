@@ -3,11 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import GestureEvents from "./src/screens/reanimatedAndGestureAnim/GestureEvents";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
-import ScrollPagingAnim from "./src/screens/scrlAnimation/ScrollPagingAnim";
-import FloatingButtonsAnim, {
-  CircularFloatingButtons,
-} from "./src/screens/FloatingButtonsAnim";
-import ImageSliderReanimated from "./src/screens/ImageSliderReanimated";
+import TabClickAndScrollSlider from "./src/screens/scrlAnimation/TabClickAndScrollSlider";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +23,7 @@ const Wrapper = () => {
 };
 
 const App = () => {
-  return <ImageSliderReanimated />;
+  return <TabClickAndScrollSlider />;
 };
 
 export default App;
