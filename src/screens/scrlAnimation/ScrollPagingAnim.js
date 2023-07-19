@@ -9,7 +9,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { snallImgData } from "../../data/smallData";
+import { smallImgData } from "../../data/smallData";
 
 const ScrollPagingAnim = () => {
   const translateX = useSharedValue(0);
@@ -36,7 +36,7 @@ const ScrollPagingAnim = () => {
         onScroll={onScrollEvent}
         horizontal
       >
-        {snallImgData.map((item, index) => (
+        {smallImgData.map((item, index) => (
           <PageComp
             key={item.id}
             index={index}

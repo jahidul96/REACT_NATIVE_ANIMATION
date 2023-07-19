@@ -7,6 +7,7 @@ import ScrollPagingAnim from "./src/screens/scrlAnimation/ScrollPagingAnim";
 import FloatingButtonsAnim, {
   CircularFloatingButtons,
 } from "./src/screens/FloatingButtonsAnim";
+import ImageSliderReanimated from "./src/screens/ImageSliderReanimated";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,7 @@ const Wrapper = () => {
 };
 
 const App = () => {
-  return <CircularFloatingButtons />;
+  return <ImageSliderReanimated />;
 };
 
 export default App;
