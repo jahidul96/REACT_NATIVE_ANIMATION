@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { HEIGHT, WIDTH } from "../../utils/AppDimension";
 import Animated, {
   useAnimatedScrollHandler,
@@ -20,6 +20,8 @@ const tabs = ["Recent", "Gallery"];
 const TabClickAndScrollSlider = () => {
   const translateX = useSharedValue(0);
 
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
   const scrollRef = useRef();
 
   const scrollHandler = useAnimatedScrollHandler({
@@ -28,6 +30,13 @@ const TabClickAndScrollSlider = () => {
       //   console.log(event.contentOffset.x);
     },
   });
+
+  // onMomentumScrollEnd
+  const onMomentumScrollEnd = (e) => {
+    const contentOffsetX = e.nativeEvent.contentOffset.x;
+    const currentIndex = Math.round(contentOffsetX / WIDTH);
+    setCurrentSlideIndex(currentIndex);
+  };
 
   const activeTab = useDerivedValue(() => {
     return Math.round(translateX.value / WIDTH);
@@ -68,6 +77,7 @@ const TabClickAndScrollSlider = () => {
           horizontal
           bounces={false}
           pagingEnabled
+          onMomentumScrollEnd={onMomentumScrollEnd}
           onScroll={scrollHandler}
         >
           {/* recent Tab content */}

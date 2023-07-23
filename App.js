@@ -5,6 +5,8 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import TabClickAndScrollSlider from "./src/screens/scrlAnimation/TabClickAndScrollSlider";
 
+import WhatsappMessageSendAnim from "./src/screens/WhatsappMessageSendAnim";
+
 const Stack = createNativeStackNavigator();
 
 const Wrapper = () => {
@@ -23,7 +25,7 @@ const Wrapper = () => {
 };
 
 const App = () => {
-  return <TabClickAndScrollSlider />;
+  return <WhatsappMessageSendAnim />;
 };
 
 export default App;

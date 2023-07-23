@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useCallback, useRef } from "react";
-import { WIDTH } from "../utils/AppDimension";
-import { smallImgData } from "../data/smallData";
+import { WIDTH } from "../../utils/AppDimension";
+import { smallImgData } from "../../data/smallData";
 import { AntDesign } from "@expo/vector-icons";
 import Animated, {
   useAnimatedScrollHandler,
