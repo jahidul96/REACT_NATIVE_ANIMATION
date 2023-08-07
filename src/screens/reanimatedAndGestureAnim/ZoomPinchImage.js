@@ -4,7 +4,7 @@ import {
   GestureHandlerRootView,
   PinchGestureHandler,
 } from "react-native-gesture-handler";
-import { imgUri } from "../utils/FileExports";
+import { imgUri } from "../../utils/FileExports";
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,

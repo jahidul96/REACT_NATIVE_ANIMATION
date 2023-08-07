@@ -6,6 +6,11 @@ import { StyleSheet, Text, View } from "react-native";
 import TabClickAndScrollSlider from "./src/screens/scrlAnimation/TabClickAndScrollSlider";
 
 import WhatsappMessageSendAnim from "./src/screens/WhatsappMessageSendAnim";
+import { NavigationContainer } from "@react-navigation/native";
+
+import StorieSeenSnapChat, {
+  StoryDetails,
+} from "./src/screens/reanimatedAndGestureAnim/StorieSeenSnapChat";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,16 +21,29 @@ const Wrapper = () => {
         flex: 1,
       }}
     >
-      <View style={styles.topBar}>
-        <Text style={styles.textStyle}>Playing With Animation</Text>
-      </View>
-      <GestureEvents />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen
+            component={StorieSeenSnapChat}
+            name="StorieSeenSnapChat"
+          />
+          <Stack.Screen
+            component={StoryDetails}
+            name="StoryDetails"
+            options={{ presentation: "transparentModal" }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </GestureHandlerRootView>
   );
 };
 
 const App = () => {
-  return <WhatsappMessageSendAnim />;
+  return <Wrapper />;
 };
 
 export default App;
